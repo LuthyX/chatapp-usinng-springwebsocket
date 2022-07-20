@@ -8,6 +8,7 @@ var messageInput = document.querySelector('#message');
 var messageArea = document.querySelector('#messageArea');
 var connectingElement = document.querySelector('.connecting');
 
+
 var stompClient = null;
 var username = null;
 
@@ -76,7 +77,7 @@ function onMessageReceived(payload) {
 
     if(message.type === 'JOIN') {
         messageElement.classList.add('event-message');
-        message.content = message.sender + ' joined!';
+        message.content = message.sender + ' joined at ';
     } else if (message.type === 'LEAVE') {
         messageElement.classList.add('event-message');
         message.content = message.sender + ' left!';
@@ -94,6 +95,8 @@ function onMessageReceived(payload) {
         var usernameText = document.createTextNode(message.sender);
         usernameElement.appendChild(usernameText);
         messageElement.appendChild(usernameElement);
+
+
     }
 
     var textElement = document.createElement('p');
@@ -101,6 +104,15 @@ function onMessageReceived(payload) {
     textElement.appendChild(messageText);
 
     messageElement.appendChild(textElement);
+
+    var timesentElement = document.createElement('y');
+    var timesent = document.createTextNode(message.timeSent);
+    timesentElement.appendChild(timesent);
+
+    timesentElement.classList.add('time-message');
+
+    messageElement.appendChild(timesentElement);
+
 
     messageArea.appendChild(messageElement);
     messageArea.scrollTop = messageArea.scrollHeight;

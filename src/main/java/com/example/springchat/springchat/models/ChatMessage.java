@@ -1,9 +1,24 @@
 package com.example.springchat.springchat.models;
 
+import java.time.LocalTime;
+
 public class ChatMessage {
     private String content;
     private String sender;
     private Messagetype type;
+    private LocalTime timeSent;
+
+    public String getTimeSent() {
+        long millis = System.currentTimeMillis();
+
+        // creating a new object of the class Date
+        java.util.Date date = new java.util.Date(millis);
+        return String.valueOf(date);
+    }
+
+    public void setTimeSent(LocalTime timeSent) {
+        this.timeSent = timeSent;
+    }
 
     public enum Messagetype{
         CHAT, LEAVE, JOIN

@@ -200,6 +200,13 @@ button.accent {
     position: relative;
 }
 
+#chat-page .chat-message y {
+    color: #777;
+    font-size: 13px;
+    word-wrap: break-word;
+    font-style: italic;
+}
+
 #chat-page .chat-message i {
     position: absolute;
     width: 42px;
