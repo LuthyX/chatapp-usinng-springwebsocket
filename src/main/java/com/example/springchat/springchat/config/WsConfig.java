@@ -12,9 +12,9 @@ public class WsConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/qoo");
+//        registry.addEndpoint("/qoo");
 
-        registry.addEndpoint("/qoo").setAllowedOrigins("*").withSockJS();
+        registry.addEndpoint("/qoo").withSockJS();
     }
 
     @Override
