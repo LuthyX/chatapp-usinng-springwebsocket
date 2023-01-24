@@ -24,7 +24,7 @@ function connect(event) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
 
-        var socket = new SockJS('/qoo');
+        var socket = new SockJS('https://letschat.up.railway.app/qoo');
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
